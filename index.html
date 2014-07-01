@@ -1,37 +1,11 @@
 <!doctype html>
-<html ng-app="awesome-voter">  
-	<head>    
-    	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<html>  
+    <head>    
         <link href="css/main.css" rel="stylesheet" type="text/css"/>
-
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
-    	<script src="https://cdn.firebase.com/js/client/1.0.15/firebase.js"></script>
-        <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
- 
-        <script>
-          angular.module("awesome-voter", ["firebase"])
-            .controller('VoteController', function ($scope, $firebase) {
-                
-                var yesVotesRef = new Firebase("https://awesome-voter.firebaseio.com/votes/yes");
-                $firebase(yesVotesRef).$bind($scope, "yesVotes");
-
-                var noVotesRef = new Firebase("https://awesome-voter.firebaseio.com/votes/no");
-                $firebase(noVotesRef).$bind($scope, "noVotes");
-
-                $scope.vote = function(data) {
-                    var votesRef = new Firebase("https://awesome-voter.firebaseio.com/votes/"+data);
-                    votesRef.transaction(function(currentCount) {
-                        return currentCount+1;
-                    });
-                }
-
-            });
-        </script>
-	</head> 
-  	<body> 
-   		<div class="container-fluid fill" ng-controller="VoteController">   			   
-            <button class="col-xs-6 btn-success fill" ng-click="vote('yes')"><h1>{{yesVotes}}</h1></button>
-            <button class="col-xs-6 btn-danger fill" ng-click="vote('no')"><h1>{{noVotes}}</h1></button> 
-		</div>
-	</body>
+    </head> 
+    <body> 
+        <div class="container-fluid fill">                 
+            <img src="development.gif"/>
+        </div>
+    </body>
 </html>
